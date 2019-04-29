@@ -1,41 +1,27 @@
+const express = require('express');
 const http = require('http');
 const port=process.env.PORT || 3000
 const fs = require('fs');
+const bodyParser = require('body-parser');
 
-const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-    const url = req.url;
-    const method = req.method;
-    if (url === '/') {
-      res.write('<html>');
-      res.write('<head><title>Enter Message</title><head>');
-      res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>');
-      res.write('</html>');
-      return res.end();
-    }
-    if (url === '/message' && method === 'POST') {
-      const body = [];
-      req.on('data', (chunk) => {
-        console.log(chunk);
-        body.push(chunk);
-      });
-      req.on('end', () => {
-        const parsedBody = Buffer.concat(body).toString();
-        const message = parsedBody.split('=')[1];
-        fs.writeFileSync('message.txt', message);
-      });
-      res.statusCode = 302;
-      res.setHeader('Location', '/');
-      return res.end();
-    }
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<html>');
-    res.write('<head><title>My First Page</title><head>');
-    res.write('<body><h1>Hello from my Node.js Server!</h1></body>');
-    res.write('</html>');
-    res.end();
+const app = express();
+
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/add-product', (req, res, next) => {
+  res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
-server.listen(port,() => {
+app.post('/product', (req, res, next) => {
+    console.log(req.body);
+    res.redirect('/');
+});
+
+app.use('/', (req, res, next) => {
+  res.send('<h1>Hello from Express!</h1>');
+});
+
+
+app.listen(port,() => {
 	console.log(`Server running at port `+port);
 });
