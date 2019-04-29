@@ -1,9 +1,12 @@
 const http = require('http');
+const port=process.env.PORT || 3000
 
-const routes = require('./routes');
+const server = http.createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'text/html');
+	res.end('<h1>Hello World. some extra text</h1>');
+});
 
-console.log(routes.someText);
-
-const server = http.createServer(routes.handler);
-
-server.listen(3000);
+server.listen(port,() => {
+	console.log(`Server running at port `+port);
+});
