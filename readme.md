@@ -8,3 +8,7 @@ https://www.udemy.com/course/nodejs-the-complete-guide/
 
 Adding the helper function in section 71 makes Azure display "Not Found" instead of displaying the html page, so I omitted it. It seems unnecessasary to add this functionality, so I should just remember to avoid it.
 
+To-do:
+add the dynamics, EJS, and MVC
+work throught more course modules and implement new things learned
+add more pages on this web app that showcase my orignal JS functions and CSS styling
