@@ -6,6 +6,14 @@
     <%- include('includes/navigation.ejs') %>
 
     <main>
+        <h3> About </h3>
+        <div>
+            Welcome. This site runs on 
+            <a href ="https://github.com/Stefanvdw24/azure-web-app">this github repository</a>.
+            See that page for more info.
+        </div>
+        <h3> Shop </h3>
+
         <% if (prods.length > 0) { %>
             <div class="grid">
                 <% for (let product of prods) { %>
