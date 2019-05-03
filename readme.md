@@ -2,7 +2,7 @@ The github repository for the following site:
 
 http://dsvdw-web-app.azurewebsites.net
 
-I used the code from section 6 of the following course as a basis (except for a fix I made).
+I used the code from section 6 of the following course as a basis (except for changes I made to make it work with AzureW).
 
 https://www.udemy.com/course/nodejs-the-complete-guide/
 
