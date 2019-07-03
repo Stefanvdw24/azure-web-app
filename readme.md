@@ -1,4 +1,4 @@
-The github repository for the following site:
+The github repository for the following site (It is gone now. The free trial has expired.)
 
 http://dsvdw-web-app.azurewebsites.net
 
